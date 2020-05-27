@@ -125,6 +125,7 @@ export class WorkOutAComponent implements OnInit {
         this.naam = 'Voltooid';
         this.titel = 'Voltooid ';
         this.beschrijving = 'De oefening reeks is voltooid';
+        this.pauzeTime= 0;
         this.StopTimer();
       }
     }, 1000);
