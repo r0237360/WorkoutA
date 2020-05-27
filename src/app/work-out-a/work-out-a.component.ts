@@ -18,10 +18,12 @@ export class WorkOutAComponent implements OnInit {
   // timer variabelen
   interval;
   // moet aangepast worden
-  totTijd = 100;
+  totTijd = 0;
   elapsedTime: number;
   pauze: boolean;
   begonnen: boolean;
+  subtotal: number;
+  total: number;
 
   // oefening variabelen  
   oefNum: number;
@@ -30,6 +32,8 @@ export class WorkOutAComponent implements OnInit {
   beschrijving: string;
   timeLeft: number;
   pauzeTime: number;
+
+  
 
 
   constructor() { }
@@ -73,7 +77,10 @@ export class WorkOutAComponent implements OnInit {
       this.oefNum = 0;
       this.timeLeft = this.plan.Oefeningen[0].tijdsduur;
       this.pauzeTime = 0;
-      this.beschrijving = 'Maak je klaar. Druk op start om te beginnen!';
+      this.naam = 'Welkom!'
+      this.titel = 'Workout app is klaar om te starten.'
+      this.beschrijving = 'Druk op start om te beginnen!';
+      
   }
 
 
@@ -89,6 +96,7 @@ export class WorkOutAComponent implements OnInit {
 
   // Starten van timer die alle handelingen beheert (nieuwe oef enz...)
   StartTimer(): void {
+    this.totTijd = this.BerekenTotTijd();
     this.SetOef(this.oefNum);
     this.begonnen = true;
 
@@ -103,18 +111,20 @@ export class WorkOutAComponent implements OnInit {
         if (this.pauzeTime === 0) {
           this.oefNum++;
           this.SetOef(this.oefNum);
+          this.pauze = false;
         } else {
           this.pauze = true;
           this.pauzeTime--;
+          this.naam = 'Rust'
           this.titel = 'Rust';
           this.beschrijving = 'Recuperatie tijd';
         }
       }
 
-      if (this.elapsedTime === 100) {
+      if (this.elapsedTime === this.totTijd) {
         this.naam = 'Voltooid';
         this.titel = 'Voltooid ';
-        this.beschrijving = 'De oefening reekds is voltooid';
+        this.beschrijving = 'De oefening reeks is voltooid';
         this.StopTimer();
       }
     }, 1000);
@@ -123,6 +133,19 @@ export class WorkOutAComponent implements OnInit {
   // Stop 
   StopTimer() {
     clearInterval(this.interval);
+  }
+
+  //Berekening van de totale tijd voor alle oef inc rust periodes
+  BerekenTotTijd(): number{
+     // elke duurtijd van een oefening optellen
+     this.subtotal = 0;
+      for (var i = 0; i < this.plan.Oefeningen.length; i++) {
+      this.subtotal = this.subtotal + this.plan.Oefeningen[i].tijdsduur;
+   }
+ 
+   // subtotal + rust tussen elke oefening optellen (array lenght -1)
+  return this.total = (this.plan.RustTussenOefeningen * (this.plan.Oefeningen.length - 1)) + this.subtotal;
+
   }
 
 }

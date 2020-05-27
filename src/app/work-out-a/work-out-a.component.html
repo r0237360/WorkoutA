@@ -3,5 +3,21 @@
  
 <button (click)="StartTimer()" >Start</button>
 
-<h2>{{plan.Naam}}</h2>
-<h2>{{plan.Titel}}</h2>
+<h2>Naam van het plan: {{plan.Naam}}</h2>
+<h2>Titel van het plan: {{plan.Titel}}</h2>
+
+<div *ngIf = "!pauze; then thenBlock; else elseBlock"></div>
+
+<ng-template #thenBlock>
+    <h1>Excercise Timer : {{timeLeft}}</h1>
+</ng-template>
+
+<ng-template #elseBlock>
+    <h1>Pause Timer: {{pauzeTime}}</h1>
+</ng-template>
+
+
+
+<h2>Naam: {{naam}}</h2>
+<h2>Titel: {{titel}}</h2>
+<h2>Beschrijving: {{beschrijving}}</h2>
