@@ -4,6 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 [![Build Status](https://dev.azure.com/Projectwerk/Test/_apis/build/status/r0237360.WorkoutA?branchName=master)](https://dev.azure.com/Projectwerk/Test/_build/latest?definitionId=4&branchName=master)
 
+[![Build Status](https://dev.azure.com/Projectwerk/Test/_apis/build/status/r0237360.WorkoutA?branchName=master)](https://dev.azure.com/Projectwerk/Test/_build/latest?definitionId=4&branchName=master)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
