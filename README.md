@@ -1,4 +1,6 @@
 [![Build Status](https://dev.azure.com/Projectwerk/Test/_apis/build/status/r0237360.WorkoutA?branchName=master)](https://dev.azure.com/Projectwerk/Test/_build/latest?definitionId=4&branchName=master)
+
+[![Build Status](https://dev.azure.com/Projectwerk/Test/_apis/build/status/r0237360.WorkoutA?branchName=master)](https://dev.azure.com/Projectwerk/Test/_build/latest?definitionId=4&branchName=master)
 # WorkOutA 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
